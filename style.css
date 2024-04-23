@@ -1,0 +1,272 @@
+*{
+ 
+    margin: 0;
+    position: relative;
+    border: none;
+}
+button{
+    background-color: transparent;
+    color: transparent;
+    user-select: none;
+    cursor: pointer;
+}
+button:active{
+    top: -1px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flipphone{
+    background-image: url("assets/flipphone.png");
+    height: 622px;
+    width: 230px;
+}
+#display-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+#display-buttons button{
+    width: fit-content;
+    color: black;
+    font-size: 12px;
+}
+.background{
+    background-color: #bbbbbb;
+}
+.position{
+    position: absolute;
+}
+.display{
+    display: none !important;
+}
+#display{
+    background-image: url(assets/background.jpg);
+    background-size: cover;
+    position: absolute;
+    flex-wrap: wrap;
+    top: 70px;
+    left: 608px;
+    height: 174px;
+    width: 149px;
+}
+#number-display{
+    width: 134px;
+    height: 20px;
+    margin-bottom: 28px;
+    background-color: transparent;
+}
+#apps-content{
+    margin: 6px;
+}
+#calculator-content{
+    display: grid;
+    row-gap: 3px;
+    width: inherit;
+    height: 158px;
+}
+.app{
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+}
+#calculator-app{
+    background-image: url(assets/calculatorapp.png);
+}
+#contacts-app{
+    background-image: url(assets/contactapp.png);
+}
+#calculator-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+#calculator-buttons button{
+    color: black;
+}
+#calculator-sign{
+    background-color: #808080;
+    display: flex;
+    width: inherit;
+    justify-content: center;
+    align-self: end;
+    padding: 4px 0px;
+    user-select: none;  
+}
+#contact-content{
+    display: flex;
+    width: inherit;
+    align-items: center;
+    height: 158px;
+    font-size: 12px;
+}
+#contact-content input{
+    width: 145px;
+    background-color: #80808042;
+}
+#contact-content button{
+    background-color: #dadada;
+    margin: 6px;
+    padding: 0px 56px;
+    color: black;
+    border-radius: 2px;
+    margin-left: 11px;
+}
+#contacts-list{
+    width: inherit;
+    height: 158px;
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+#contacts-list:hover{
+    overflow-y: scroll;
+}
+.contact{
+    display: flex;
+    margin: 6px;
+    padding-top: 5px;
+}
+.contact img{
+    float: left;
+    height: 30px;
+    padding-right: 5px;
+}
+.contact p{
+    float: none;
+    width: max-content;
+    font-size: 12px;
+}
+.contact button{
+    padding-left:10px;
+}
+.contact button img{
+    height:15px;
+}
+#call-contact{
+    width: inherit;
+    height: 158px;
+    font-size: 12px;
+    text-align: center;
+    align-content: center;
+}
+#call-contact img{
+    height: 15px;
+    padding-top: 10px;
+}
+#counter{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+#contact-calling{
+    position: absolute;
+    z-index: 1;
+    width: inherit;
+    height: 158px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+#contact-calling img{
+    height: 15px;
+    padding-top: 10px;
+}
+/*BOTTOM FLIPPHONE*/ 
+#buttons{
+    display: grid;
+    row-gap: 80px;  
+    justify-items: center;
+    position: absolute;
+    top: 302px;
+    flex-wrap: wrap;
+    margin-left: 4px;
+}
+#row1{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    width: 34px;
+    margin-top: 7px;
+}
+.operation{
+    width: 40px;
+    position: absolute;
+    z-index: 1;
+}
+#row2{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 8px;
+}
+.number{
+    width: 54px;
+    height: 23px;
+}
+#dot{
+    background: url('assets/dot.png') no-repeat;
+}
+#equals{
+    background: url('assets/equals.png') no-repeat;
+}
+#add{
+    background: url('assets/circulotopo.png') no-repeat;
+}
+#multiply{
+    background: url('assets/circuloesquerdo.png') no-repeat;
+    left: -14px;
+    top: 6px;
+}
+#divide{
+    background: url('assets/circulodireito.png') no-repeat;
+    top: 6px;
+    left: 39px;
+}
+#multiply, #divide{
+    height: 56px;
+    width: 20px;
+}
+#subtract{
+    background: url('assets/circulobaixo.png') no-repeat;
+    top: 53px;
+}
+.number-0{
+    background: url('assets/0.png') no-repeat;
+    top: 2px;
+}
+.number-1{
+   background: url('assets/1.png') no-repeat;
+}
+.number-2{
+   background: url('assets/2.png') no-repeat;
+}
+.number-3{
+   background: url('assets/3.png') no-repeat;
+}
+.number-4{
+   background: url('assets/4.png') no-repeat;
+}
+.number-5{
+   background: url('assets/5.png') no-repeat;
+}
+.number-6{
+   background: url('assets/6.png') no-repeat;
+}
+.number-7{
+   background: url('assets/7.png') no-repeat;
+}
+.number-8{
+   background: url('assets/8.png') no-repeat;
+}
+.number-9{
+   background: url('assets/9.png') no-repeat;
+}   
+.number-1, .number-4, .number-7, #dot{
+    left: 4px;
+}
+.number-2, .number-5, .number-8, .number-0{
+    left: 2px;
+}
