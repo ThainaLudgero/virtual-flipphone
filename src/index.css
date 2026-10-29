@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+*{
+    user-select: none;
+    font-family: "motorola-type", sans-serif;
+}
+
+@font-face {
+  font-family: "motorola-type";
+  src: url("/fonts/MotorolaScreentype.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.button img{
+    height: 47px;
+    cursor: pointer;
+}
+
+.button-move:nth-child(3n + 2) {
+  transform: translateY(10px);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+.button-animation:active {
+    transform: translateY(1px);
+    background:
+    linear-gradient(
+      to bottom,
+      #ffc4dd 40%,
+      #fcaccd 40%
+    ) 50% 50% / calc(100% - 4px) calc(100% - 4px) no-repeat,
+    linear-gradient(
+      #FCA2C7 61%,
+      #fff4f8 97%
+    );
+}
+.button-move:nth-child(3n + 2):active {
+  transform: translateY(11px);
+}
+/* .teste {
+  background: linear-gradient(#ffffff, #ffffff) 50% 50%/calc(100% - 6px) calc(100% - 6px) no-repeat,
+            linear-gradient(#fca2c7 61%, #ffeef5 97%);
+} */
