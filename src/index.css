@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant edge (&:where(.edge-browser, .edge-browser *));
+
 *{
     user-select: none;
     font-family: "motorola-type", sans-serif;
@@ -13,9 +15,13 @@
   font-display: swap;
 }
 
-.button img{
-    height: 47px;
-    cursor: pointer;
+.button{
+  width: fit-content;
+  cursor: pointer;
+}
+
+.button-side {
+    width: var(--key-size);
 }
 
 .button-move:nth-child(3n + 2) {

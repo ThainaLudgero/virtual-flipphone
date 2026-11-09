@@ -15,7 +15,7 @@ export default function Menu() {
     return (
         <div className="relative flex h-full min-h-0 flex-col">
             <header className="relative z-10 h-8 shrink-0 bg-[linear-gradient(90deg,#FCA2C7_0%,#F77CAD_50%,#FCA2C7_100%)] mb-px">
-                <h1 className="flex h-full items-center justify-center text-xl">
+                <h1 className="flex h-full items-center justify-center text-base edge:text-xl">
                     Menu
                 </h1>
             </header>
@@ -78,9 +78,13 @@ export default function Menu() {
                 />
             </button>
             </div>
-            <footer className="h-8 shrink-0 flex mt-0.5">
-                <NavLink type="button" to="/" className="cursor-pointer py-1 pl-2 w-full text-left bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC]">Exit</NavLink>
-                <button className="cursor-pointer py-1 pl-2 w-full text-right bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC]">Select</button>
+            <footer className="flex mt-0.5 text-sm edge:text-base">
+                <div className="flex items-center w-full bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC]">
+                    <NavLink type="button" to="/" className="w-fit cursor-pointer pl-2 text-left">Exit</NavLink>
+                </div>
+                <div className="w-full bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC]">
+                    <button className="cursor-pointer py-1 pr-2 w-fit block ml-auto text-right">Select</button>
+                </div>
             </footer>
             {isExtrasOpen && (
                 <Extras onClose={() => setIsExtrasOpen(false)} />

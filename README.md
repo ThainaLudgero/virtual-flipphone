@@ -65,6 +65,6 @@ Estas são as telas e os recursos desejados para o projeto. O status atual de ca
 
 ## Observações
 
-- O teclado do aparelho já tem botões interativos para entrada por múltiplos toques e exclusão do último caractere; o suporte ao teclado físico e a integração com todas as telas ainda não estão concluídos.
+- O teclado do aparelho já tem botões interativos para entrada por múltiplos toques, integrados ao campo de chamada; o suporte ao teclado físico ainda não está concluído.
 - O projeto ainda não possui um script de testes automatizados configurado.
 - Antes de publicar ou redistribuir imagens e fontes do projeto, confirme que você tem autorização para usá-las.

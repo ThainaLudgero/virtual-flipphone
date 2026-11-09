@@ -7,6 +7,8 @@ import Menu from "../screens/Menu";
 import Contacts from "../screens/Contacts";
 // @ts-expect-error Menu is a JavaScript component without TypeScript declarations.
 import ContactDetails from "../screens/ContactDetails";
+// @ts-expect-error Menu is a JavaScript component without TypeScript declarations.
+import Calculator from "../screens/Calculator";
 
 const routes: RouteObject[] = [
   { index: true, element: <Home /> },
@@ -14,6 +16,7 @@ const routes: RouteObject[] = [
   { path: "home", element: <Home /> },
   { path: "contacts", element: <Contacts /> },
   { path: "contact-details", element: <ContactDetails /> },
+  { path: "calculator", element: <Calculator /> },
 ];
 
 export default routes;

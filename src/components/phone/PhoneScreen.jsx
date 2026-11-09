@@ -1,17 +1,12 @@
+
 import { useRoutes } from "react-router";
 import routes from "../../app/routes";
 
-export default function PhoneScreen({ inputValue, onInputChange }) {
+export default function PhoneScreen() {
     const screen = useRoutes(routes);
 
     return (
-        <div className="relative z-9 top-32 h-83 w-63 rounded-sm">
-            {/* <input
-                type="text"
-                value={inputValue}
-                onChange={(event) => onInputChange(event.target.value)}
-                className="bg-gray-200 border-none focus:outline-none"
-            /> */}
+        <div className="relative z-[9] flex h-full min-h-0 w-full min-w-0 flex-col overflow-hidden rounded-sm">
             {screen}
         </div>
     );

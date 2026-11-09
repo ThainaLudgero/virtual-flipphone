@@ -12,6 +12,7 @@ export default function Contacts() {
     const [activeContact, setActiveContact] = useState(0);
     const [bottomSpace, setBottomSpace] = useState(0);
 
+
     function handleExit() {
         if (location.key === "default") {
             navigate("/", { replace: true });
@@ -86,7 +87,7 @@ export default function Contacts() {
     return (
         <div className="flex h-full min-h-0 flex-col overflow-hidden">
             <header className="h-8 shrink-0 bg-[linear-gradient(90deg,#FCA2C7_0%,#F77CAD_50%,#FCA2C7_100%)]">
-                <h1 className="flex h-full items-center justify-center text-xl">
+                <h1 className="flex h-full items-center justify-center text-base edge:text-xl">
                     Contacts
                 </h1>
             </header>
@@ -110,12 +111,12 @@ export default function Contacts() {
                         }`}
                     >
                         <img
-                            className="h-16 shrink-0"
+                            className="h-13 edge:h-16 shrink-0"
                             src={images.defaultcontact}
                             alt=""
                         />
 
-                        <span className="text-base">
+                        <span className="text-xs edge:text-base">
                             &gt; Nome do contato {contact}
                             <span className="block">
                                 (DDD) 1234-5678
@@ -130,9 +131,13 @@ export default function Contacts() {
                     style={{ height: bottomSpace }}
                 />
             </div>
-            <footer className="h-8 shrink-0 flex mt-0.5">
-                <button type="button" onClick={handleExit} className="cursor-pointer py-1 pl-2 w-full text-left bg-[linear-gradient(90deg,#F77CAD_40%,rgba(253,214,236,1)_100%)]">Exit</button>
-                <NavLink to="/contact-details" className="cursor-pointer py-1 pl-2 w-full text-right bg-[linear-gradient(270deg,#F77CAD_40%,rgba(253,214,236,1)_100%)]">View</NavLink>
+            <footer className="shrink-0 flex mt-0.5 text-sm edge:text-base">
+                <div className="w-full bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC]">
+                    <button type="button" onClick={handleExit} className="cursor-pointer py-1 pl-2 w-full text-left">Exit</button>        
+                </div>
+                <div className="w-full bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC]">
+                    <NavLink to="/contact-details" className="cursor-pointer py-1 pr-2 w-fit block ml-auto text-right">View</NavLink>
+                </div>
             </footer>
         </div>
     );

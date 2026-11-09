@@ -1,10 +1,50 @@
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import images from "../assets/images";
+import { usePhoneInput } from "../components/phone/PhoneInputContext";
 import Calling from "./Calling";
+
+const CALL_BLOCKED_OPERATORS = new Set(["+", "-", "*", "/"]);
 
 export default function Call({ onClose }) {
   const [isCallingOpen, setIsCallingOpen] = useState(false);
+  const [showNoNumber, setShowNoNumber] = useState(false);
+  const {
+    value,
+    handleChange,
+    removeLastCharacter,
+    registerKeyPressFilter,
+    registerKeyboardControls,
+  } = usePhoneInput();
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
+
+  const filterOperators = useCallback((key) => CALL_BLOCKED_OPERATORS.has(key), []);
+  const handleCenterPress = useCallback(() => onCloseRef.current(), []);
+  const handleCall = useCallback(() => {
+    if (!value.trim()) {
+      setShowNoNumber(true);
+      return;
+    }
+
+    setShowNoNumber(false);
+    setIsCallingOpen(true);
+  }, [value]);
+
+  useEffect(() => registerKeyPressFilter(filterOperators), [filterOperators, registerKeyPressFilter]);
+  useEffect(() => {
+    if (value.trim()) {
+      setShowNoNumber(false);
+    }
+  }, [value]);
+
+  useEffect(
+    () => registerKeyboardControls({
+      onCenterPress: isCallingOpen ? null : handleCenterPress,
+      operatorsEnabled: false,
+    }),
+    [handleCenterPress, isCallingOpen, registerKeyboardControls],
+  );
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -34,36 +74,57 @@ return (
         >
           <div className="relative mb-2 flex items-center justify-center">
             <img
-              className="absolute left-0 pl-2"
+              className="absolute left-2 h-6 edge:h-8"
               src={images.telephoneIcon}
               alt=""
             />
-            <h2 id="call-title">Entering</h2>
+            <h2 id="call-title" className="text-sm edge:text-base">Entering</h2>
           </div>
 
           <textarea
             className="w-full resize-none rounded-t-md bg-white focus:outline-none"
             aria-label="Número de telefone"
+            value={value}
+            onChange={handleChange}
           />
+          {showNoNumber && (
+            <p className="text-center text-sm" role="status" aria-live="polite">
+              No number
+            </p>
+          )}
         </section>
 
-        <footer className="flex h-8 w-full">
-          <button
-            type="button"
-            onClick={onClose}
-            className="w-full cursor-pointer bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC] py-1 pl-2 text-left"
-          >
-            Exit
-          </button>
+        <footer className="flex w-full text-sm edge:text-base">
+          <div className="flex w-full bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC]">
+              <button
+                  type="button"
+                  onClick={removeLastCharacter}
+                  className="w-fit cursor-pointer py-1 pl-2"
+              >
+                  Delete
+              </button>
+          </div>
 
-          <button
-            type="button"
-            onClick={() => setIsCallingOpen(true)}
-            className="w-full cursor-pointer bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC] py-1 pl-2 text-right"
-          >
-            Call
-          </button>
-        </footer>
+          <div className="flex w-full justify-center">
+              <button
+                  type="button"
+                  onClick={onClose}
+                  className="w-fit cursor-pointer py-1"
+              >
+                  Exit
+              </button>
+          </div>
+
+          <div className="flex w-full justify-end bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC]">
+              <button
+                  type="button"
+                  onClick={handleCall}
+                  className="w-fit cursor-pointer py-1 pr-2"
+              >
+                  Call
+              </button>
+          </div>
+      </footer>
       </div>
     ) : (
       <Calling onClose={() => setIsCallingOpen(false)} />

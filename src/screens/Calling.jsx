@@ -24,11 +24,12 @@ export default function Calling({ onClose }) {
       >
         <div className="relative mb-3 flex items-center">
           <img
+            className="h-6 edge:h-8"
             src={images.calling}
-            alt=""
+            alt="two telephones"
           />
         </div>
-        <div className="bg-white rounded-t-md text-center text-xl p-1">
+        <div className="bg-white rounded-t-md text-center edge:text-xl p-1">
             <h1>Calling...</h1>
             <p>(number)</p>
             <p>Fowarding On</p>
@@ -36,18 +37,16 @@ export default function Calling({ onClose }) {
         {/* Conteúdo da tela de ligação */}
       </section>
 
-      <footer className="flex h-8 w-full">
-        <div
-          className="w-full bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC] py-1 pl-2 text-right"
-        >
+      <footer className="flex w-full text-sm edge:text-base">
+        <div className="w-full bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC]">
+          <button
+            type="button"
+            onClick={onClose}
+            className="w-fit ml-auto block cursor-pointer  py-1 pr-2"
+          >
+            Exit
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={onClose}
-          className="w-full text-right cursor-pointer bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC] py-1 pl-2 text-left"
-        >
-          Exit
-        </button>
       </footer>
     </div>
   );

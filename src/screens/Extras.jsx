@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router";
+import { useNavigate } from "react-router";
 import images from "../assets/images";
 
 export default function Extras({ onClose }) {
   const [activeExtra, setActiveExtra] = useState(0);
+  const navigate = useNavigate();
+
+  function openCalculator() {
+    navigate("/calculator");
+  }
 
   useEffect(() => {
     function handleKeyDown(event) {
@@ -27,7 +32,7 @@ export default function Extras({ onClose }) {
       >
         <div className="relative mb-3 flex items-center justify-center">
           <img className="absolute left-0 pl-2" src={images.extrasIcon} alt="" />
-          <h2 id="extras-title" className="text-center">
+          <h2 id="extras-title" className="text-center text-sm edge:text-base">
             Extras
           </h2>
         </div>
@@ -37,9 +42,9 @@ export default function Extras({ onClose }) {
           <li>
             <button
               type="button"
-              onClick={() => setActiveExtra(0)}
+              onClick={openCalculator}
               aria-pressed={activeExtra === 0}
-              className={`flex w-full items-center px-1 text-left ${
+              className={`flex w-full items-center px-1 text-left text-sm edge:text-base cursor-pointer ${
                 activeExtra === 0
                   ? "bg-[linear-gradient(180deg,#FFDD94_0%,#FFDD94_5%,#FFCF67_15%,#FFCF67_69%,#FCBC32_100%)]"
                   : "bg-transparent"
@@ -53,21 +58,26 @@ export default function Extras({ onClose }) {
           </li>
         </ul>
       </section>
-      <footer className="flex h-8 w-full">
-        <button
-          type="button"
-          onClick={onClose}
-          className="w-full cursor-pointer bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC] py-1 pl-2 text-left"
-        >
-          Exit
-        </button>
-
-        <button
-          type="button"
-          className="w-full cursor-pointer bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC] py-1 pl-2 text-right"
-        >
-          Select
-        </button>
+      <footer className="flex w-full text-sm edge:text-base">
+        <div className="w-full bg-linear-to-r from-[#F77CAD] from-40% to-[#FDD6EC]">
+          <button
+            type="button"
+            onClick={onClose}
+            className="w-fit cursor-pointer py-1 pl-2 text-left"
+          >
+            Exit
+          </button>
+        </div>
+        <div className="w-full bg-linear-to-l from-[#F77CAD] from-40% to-[#FDD6EC]">
+          <button
+            type="button"
+            onClick={activeExtra === 0 ? openCalculator : undefined}
+            aria-disabled={activeExtra !== 0}
+            className="w-fit block ml-auto cursor-pointer py-1 pr-2 text-right"
+          >
+            Select
+          </button>
+        </div>
       </footer>
     </div>
   );

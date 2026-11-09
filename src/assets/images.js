@@ -34,6 +34,7 @@ import callhover from "./callhover.gif";
 import calling from "./calling.png";
 import telephoneIcon from "./telephoneicon.png";
 import calculatorIcon from "./calculatoricon.png";
+import calculatorguide from "./calculatorguide.png";
 
 const images = {
 	image1,
@@ -72,6 +73,7 @@ const images = {
 	calling,
 	telephoneIcon,
 	calculatorIcon,
+	calculatorguide,
 };
 
 export default images;
